@@ -1,2 +1,5 @@
 # Goland IDEA editor
 .idea/
+
+#tmp files
+tmp

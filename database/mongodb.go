@@ -1,19 +1,22 @@
 package database
 
 import (
+	. "StudentManager/middleware"
+	_ "StudentManager/utils"
 	"context"
-	"fmt"
-	"log"
-
+	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"log"
 )
 
 var DB = SetupDB(context.Background())
 
+// SetupDB mongodb数据库初始化
 func SetupDB(ctx context.Context) *mongo.Client {
+	url := viper.GetString("mongodb.url")
 	// 设置客户端连接配置
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
+	clientOptions := options.Client().ApplyURI(url)
 
 	// 连接到MongoDB
 	client, err := mongo.Connect(ctx, clientOptions)
@@ -26,6 +29,6 @@ func SetupDB(ctx context.Context) *mongo.Client {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Connected to MongoDB!")
+	Ln.Println("Connected to MongoDB!")
 	return client
 }

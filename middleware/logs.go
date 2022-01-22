@@ -1,26 +1,36 @@
-package logs
+package middleware
 
 import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/sirupsen/logrus"
+	"io"
 	"log"
 	"os"
+	"time"
 )
 
-// Logger 日志打印
-func Logger(app *fiber.App) func() {
-	file, err := os.OpenFile("./info.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+var Ln = logrus.New()
+
+func Logs() func() {
+	logName := time.Now().Format("2006-01-02 ") + ".log"
+	file, err := os.OpenFile("./logs/"+logName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatalf("error opening file: %v", err)
 	}
-	app.Use(logger.New(logger.Config{
-		Format:     "${time}  ${status} - ${method} ${path}\n",
-		TimeFormat: "2006-01-02T15:04:05",
-		TimeZone:   "local",
-		Output:     file,
-	}))
-	//文件关闭接口返回上一层
+	Ln.SetReportCaller(true)
+	Ln.Formatter = &logrus.JSONFormatter{
+		TimestampFormat: "2006-01-02 15:04:05",
+		FieldMap: logrus.FieldMap{
+			"time":  "时间",
+			"level": "级别",
+			"msg":   "消息",
+			"func":  "来源",
+			"file":  "地址",
+		},
+	}
+	Ln.SetOutput(io.MultiWriter(file, os.Stdout))
 	return func() {
-		file.Close()
+		if err := file.Close(); err != nil {
+			Ln.Fatal(err)
+		}
 	}
 }

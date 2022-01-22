@@ -1,0 +1,19 @@
+2022-01-22 09:40:24  200 - GET /
+2022-01-22 09:40:31  200 - GET /hypo
+{"@level":"info","@message":"hello world","file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","func":"StudentManager/router.SetupRouter.func1","time":"0001-01-01 00:00:00"}
+{"file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","func":"StudentManager/router.SetupRouter.func1","level":"info","msg":"hello world","time":"222222-01-2222 11:4518:145"}
+{"file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","func":"StudentManager/router.SetupRouter.func1","level":"info","msg":"hello world","time":"222222-01-2222 11:466:18"}
+{"2022-01-22 11:47:16":"222222-01-2222 11:477:16","file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","func":"StudentManager/router.SetupRouter.func1","level":"info","msg":"hello world"}
+{"file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","func":"StudentManager/router.SetupRouter.func1","level":"info","msg":"hello world","time":"222222-01-2222 11:499:497"}
+{"file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","func":"StudentManager/router.SetupRouter.func1","msg":"hello world","时间":"222222-01-2222 11:531:530","级别":"info"}
+{"file":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","时间":"222222-01-2222 11:055:07","来源":"StudentManager/router.SetupRouter.func1","消息":"hello world","级别":"info"}
+{"time":"222222-01-2222 11:566:5611","地址":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","来源":"StudentManager/router.SetupRouter.func1","消息":"hello world","级别":"info"}
+{"time":"222222-01-2222 11:488:5822","地址":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","来源":"StudentManager/router.SetupRouter.func1","消息":"hello world","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:18","时间":"2022-01-22 12:02:19","来源":"StudentManager/router.SetupRouter.func1","消息":"hello world","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:16","时间":"2022-01-22 15:12:00","来源":"StudentManager/models.Insert","消息":"cannot transform type []interface {} to a BSON Document: WriteArray can only write a Array while positioned on a Element or Value but is positioned on a TopLevel","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:16","时间":"2022-01-22 15:18:44","来源":"StudentManager/models.Insert","消息":"cannot transform type bson.Raw to a BSON Document: length read exceeds number of bytes available. length=1815 bytes=537557770","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:16","时间":"2022-01-22 15:25:55","来源":"StudentManager/models.Insert","消息":"cannot transform type bson.Raw to a BSON Document: length read exceeds number of bytes available. length=1815 bytes=537557770","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:18","时间":"2022-01-22 15:37:09","来源":"StudentManager/controllers.Add","消息":"json: cannot unmarshal string into Go struct field Student.age of type int64","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:18","时间":"2022-01-22 15:41:16","来源":"StudentManager/controllers.Add","消息":"json: cannot unmarshal string into Go struct field Student.gender of type bool","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:18","时间":"2022-01-22 15:42:04","来源":"StudentManager/controllers.Add","消息":"json: cannot unmarshal number into Go struct field Teacher.subject.teacher.phone of type string","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:24","时间":"2022-01-22 15:47:17","来源":"StudentManager/router.SetupRouter","消息":"listen tcp4 :3000: bind: address already in use","级别":"fatal"}

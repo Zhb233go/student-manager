@@ -1,33 +1,28 @@
 package router
 
 import (
-	"fiber-demo/logs"
-	"fmt"
+	"StudentManager/controllers"
+	. "StudentManager/middleware"
 	"github.com/gofiber/fiber/v2"
-	"log"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/recover"
 )
 
+// SetupRouter 路由初始化
 func SetupRouter() *fiber.App {
 	app := fiber.New()
-	logs.Logger(app)
-	// 定义全局的中间件
-	app.Use(func(c *fiber.Ctx) error {
-		fmt.Println("🥇 First 2222handler")
-		return c.Next()
-	})
-
+	app.Use(cors.New(cors.ConfigDefault))
+	app.Use(recover.New())
 	//对参数的校验
-	app.Get("/:name?", func(c *fiber.Ctx) error {
-		if c.Params("name") != "" {
-			return c.SendString("Hello " + c.Params("name"))
-			// => Hello john
-		}
-		return c.SendString("what you want to do?")
-	})
+	manager := app.Group("/manager")
+	{
+		manager.Get("/:name?", controllers.Hello)
+		manager.Post("/student", controllers.Add)
 
-	err := app.Listen(":3000")
-	if err != nil {
-		log.Println("listen error: ", err)
 	}
+	if err := app.Listen(":3000"); err != nil {
+		Ln.Fatal(err)
+	}
+	Ln.Info("监听在:3000 端口")
 	return app
 }

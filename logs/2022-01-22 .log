@@ -17,3 +17,11 @@
 {"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:18","时间":"2022-01-22 15:41:16","来源":"StudentManager/controllers.Add","消息":"json: cannot unmarshal string into Go struct field Student.gender of type bool","级别":"error"}
 {"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:18","时间":"2022-01-22 15:42:04","来源":"StudentManager/controllers.Add","消息":"json: cannot unmarshal number into Go struct field Teacher.subject.teacher.phone of type string","级别":"error"}
 {"地址":"/Users/zhouhaibo/go/src/StudentManager/router/router.go:24","时间":"2022-01-22 15:47:17","来源":"StudentManager/router.SetupRouter","消息":"listen tcp4 :3000: bind: address already in use","级别":"fatal"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:28","时间":"2022-01-22 16:45:47","来源":"StudentManager/controllers.Hello","消息":"hello world","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/controllers/controllers.go:28","时间":"2022-01-22 16:47:59","来源":"StudentManager/controllers.Hello","消息":"hello world","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:18","时间":"2022-01-22 17:01:00","来源":"StudentManager/models.Insert","消息":"insert a single record:ObjectID(\"61ebc7cc29e9aed685e0af7e\")","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:16","时间":"2022-01-22 18:18:48","来源":"StudentManager/models.(*Student).InsertOne","消息":"insert a single record:ObjectID(\"61ebda0881121c5d4b40ab68\")","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:23","时间":"2022-01-22 18:23:02","来源":"StudentManager/models.(*Student).QueryOne","消息":"mongo: no documents in result","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:25","时间":"2022-01-22 18:23:02","来源":"StudentManager/models.(*Student).QueryOne","消息":"delete a single record","级别":"info"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:23","时间":"2022-01-22 18:29:05","来源":"StudentManager/models.(*Student).QueryOne","消息":"mongo: no documents in result","级别":"error"}
+{"地址":"/Users/zhouhaibo/go/src/StudentManager/models/data.go:26","时间":"2022-01-22 18:29:05","来源":"StudentManager/models.(*Student).QueryOne","消息":"Queried a single record","级别":"info"}

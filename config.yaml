@@ -1,3 +1,5 @@
 # mongodb
 mongodb:
+  username: ""
+  password: ""
   url: "mongodb://localhost:27017"

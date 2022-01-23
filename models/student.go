@@ -1,7 +1,7 @@
 package models
 
 type Student struct {
-	Uid     int64     `json:"uid" validate:"required,min=4,max=32"`
+	Uid     string    `json:"uid" validate:"required,min=4,max=32"`
 	Name    string    `json:"name" validate:"required,min=4,max=32"`
 	Gender  bool      `json:"gender" validate:"required,man=true,woman=false"`
 	Age     int64     `json:"age" validate:"required,min=1,max=99"`

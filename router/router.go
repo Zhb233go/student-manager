@@ -14,11 +14,14 @@ func SetupRouter() *fiber.App {
 	app.Use(cors.New(cors.ConfigDefault))
 	app.Use(recover.New())
 	//对参数的校验
+	app.Get("/:name?", controllers.Hello)
 	manager := app.Group("/manager")
 	{
-		manager.Get("/:name?", controllers.Hello)
 		manager.Post("/student", controllers.Add)
-
+		//manager.Post("/student2", controllers.Save)
+		manager.Get("/student", controllers.QueryOne)
+		manager.Get("/allstudent", controllers.QueryAll)
+		//manager.Get("/allstudent2", controllers.FindAll)
 	}
 	if err := app.Listen(":3000"); err != nil {
 		Ln.Fatal(err)

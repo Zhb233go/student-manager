@@ -9,26 +9,33 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-var student = models.Student{}
-
 func Add(c *fiber.Ctx) error {
+	var student = models.Student{}
 	ctx := context.Background()
 	s := c.Body()
 	err := json.Unmarshal(s, &student)
 	if err != nil {
 		Ln.Error(err)
 	}
-	models.Insert(ctx, bson.M{"student": student})
+	student.InsertOne(ctx, bson.D{{"student", student}})
 	c.SendString("success add a single student!")
 	return nil
 }
 
-func Hello(c *fiber.Ctx) error {
-	if c.Params("name") != "" {
-		Ln.Info("hello world")
-		return c.SendString("Hello " + c.Params("name"))
-		// => Hello john
-	}
-	Ln.Info("hello,who are you?")
-	return c.SendString("what you want to do?")
+func QueryOne(c *fiber.Ctx) error {
+	var student = models.Student{}
+	ctx := context.Background()
+	student.QueryOne(ctx, student)
+	c.Status(200).JSON(student)
+	Ln.Info("query a single student!")
+	return nil
+}
+
+func QueryAll(c *fiber.Ctx) error {
+	var student = models.Student{}
+	ctx := context.Background()
+	s := student.QueryAll(ctx, student)
+	c.Status(200).JSON(s)
+	Ln.Info("query all students")
+	return nil
 }

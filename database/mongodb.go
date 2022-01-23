@@ -5,6 +5,7 @@ import (
 	_ "StudentManager/utils"
 	"context"
 	"github.com/spf13/viper"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -23,9 +24,13 @@ func SetupDB(ctx context.Context) (*mongo.Client, *mongo.Collection) {
 
 	// 检查连接
 	err = client.Ping(ctx, nil)
+
+	// 列出数据库
+	data, err := client.ListDatabaseNames(ctx, bson.M{})
 	if err != nil {
 		Ln.Error(err)
 	}
+	Ln.Info(data)
 	Ln.Info("Connected to MongoDB!")
 	collection := client.Database("StudentManager").Collection("student")
 	return client, collection

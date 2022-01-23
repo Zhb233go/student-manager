@@ -3,3 +3,10 @@ mongodb:
   username: ""
   password: ""
   url: "mongodb://localhost:27017"
+
+# redis
+redis:
+  addr: "localhost:16379"
+  password: ""  #no password set
+  db: 0  #use default DB
+  poolSize: 100 #连接池大小
